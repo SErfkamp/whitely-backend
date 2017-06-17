@@ -3,9 +3,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-//var orderSchema = new Schema({}, { strict: false });
+var orderSchema = new Schema({}, { strict: false });
 
-var orderSchema = new Schema({
+/*var orderSchema = new Schema({
     orderId: String,
     status: String,
     price: String,
@@ -19,11 +19,6 @@ var orderSchema = new Schema({
     nets: [{
         netId: String,
         content: String,
-        program: String
-    },
-    {
-        netId: String,
-        content: String,
         temp: String
     }
     ],
@@ -31,6 +26,6 @@ var orderSchema = new Schema({
         type: Date,
         default: Date.now
     }
-});
+});*/
 
 module.exports = mongoose.model('Order', orderSchema);

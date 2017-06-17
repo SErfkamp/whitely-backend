@@ -1,6 +1,7 @@
 'use strict';
 
 var Order = require('./order.model');
+var apn = require('apn');
 
 function handleError(res, err) {
     return res.send(500, err);
@@ -46,11 +47,35 @@ exports.create = function (req, res) {
     });
 };
 
+/*var options = {
+    token: {
+        key: "path/to/APNsAuthKey_XXXXXXXXXX.p8",
+        keyId: "key-id",
+        teamId: "developer-team-id"
+    },
+    production: false
+};
+
+var apnProvider = new apn.Provider(options);*/
+
 exports.update = function (req, res) {
     Order.findByIdAndUpdate(req.body.id, req.body, function (err, newOrder) {
         if (err) {
             return handleError(res, err);
         }
+
+        /*var note = new apn.Notification();
+
+        note.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
+        note.badge = 3;
+        note.sound = "ping.aiff";
+        note.alert = "\uD83D\uDCE7 \u2709 ALERT: You have a new message";
+        note.payload = { 'messageFrom': 'MessageFrom' };
+        note.topic = "Topic";
+
+        apnProvider.send(note, deviceToken).then((result) => {
+            // see documentation for an explanation of result
+        });*/
 
         return res.json(newOrder);
     });
