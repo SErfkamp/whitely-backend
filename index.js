@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost/whitely-app');
 
 
 // Start server
-server.listen(3000, '192.168.1.223', function () {
+server.listen(3000, '192.168.111.106', function () {
     console.log('Server listening on port 3000..');
 });
 
