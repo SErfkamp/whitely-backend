@@ -21,5 +21,5 @@ server.listen(3000, '192.168.111.106', function () {
 
 // Expose app
 module.exports = {
-  app: app,
+    app: app,
 };
