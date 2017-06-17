@@ -9,7 +9,7 @@ exports.data = [{
         },
         status: 'ok',
         nets: [{
-            id: 1-1,
+            id: 1 - 1,
             type: 'dunno',
             location: 'loc',
             status: 'open'

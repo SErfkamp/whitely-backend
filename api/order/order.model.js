@@ -3,28 +3,34 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+//var orderSchema = new Schema({}, { strict: false });
+
 var orderSchema = new Schema({
-  status: {
-      type: String,
-      required: false
-  },
-  price: {
-      type: Number,
-      required: false
-  },
-  servicePartner: {
-      type: String,
-      required: false
-  },
-  location: {
-      lat: String,
-      lon: String
-  },
-  bag: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'Bag',
-    required: false
-}
+    orderId: String,
+    status: String,
+    price: String,
+    servicePartner: String,
+    weight: String,
+    username: String,
+    location: {
+        lat: String,
+        lon: String
+    },
+    nets: [{
+        netId: String,
+        content: String,
+        program: String
+    },
+    {
+        netId: String,
+        content: String,
+        temp: String
+    }
+    ],
+    date: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 module.exports = mongoose.model('Order', orderSchema);
