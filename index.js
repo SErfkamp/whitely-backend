@@ -26,7 +26,7 @@ app.post('/api/noti', (req, res) => {
 });
 
 
-app.get('api/noti', (req, res) => {
+app.get('/api/noti', (req, res) => {
     if (noti) {
         res.json({
             noti: true
